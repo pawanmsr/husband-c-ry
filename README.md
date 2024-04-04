@@ -1,8 +1,13 @@
 # Husband-ry
 
-Husband(ry) for Men: Fun Pet Project
+Husband(ry) for Men: Groom Yourself to be in your Gal's Good Books.  
 
-Fun Pet Project (with Satire).
+Fun Pet Project (with Satire).  
+:construction: Work in Progress.
+
+## Motivation
+
+Understanding and **learning** cross-platform programming, and multi-platform application development with focus on interface.
 
 ## Advertisement
 
@@ -20,6 +25,34 @@ Worry NO MORE. Influenced by Influencers and Assisted by AI and Blockchain - Hus
 
 DAG Questionnaire with output leaves.  
 Response vector instead of weights?
+
+### Question Node
+
+Most interactive nodes are question nodes. Question node contains a question and associated options for user to select from. Each option points to one or more other nodes which may also be an advice node.
+
+Traversal to next node is decided based on the option that is selected and the current state.
+
+*S_{t + 1} = f(S_t, x)*  
+where S_t is state at time t and x represents the option that is selected.
+
+> An example question could be: *Which of the following options most closely indicates the response you get when you ask your special someone on their choice of snacks?* The corresponding options could be:
+>
+> - Indifference
+> - Specific name of cuisine or snack
+> - Unknown (response)
+> - None (of the above)
+>
+> Remember: the questions and responses do not matter for they could be any gibberish - they could even be generated with random vectors/weights.
+
+### Advice Node
+
+These are leaf nodes of the DAG. They provide information to the user.
+
+### Frameworks
+
+- ~~Xamarin (.NET)~~
+- Flutter (Dart)
+- ~~Cordova, Ionic, React Native (JS)~~
 
 ### Data
 
