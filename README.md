@@ -26,6 +26,11 @@ Worry NO MORE. Influenced by Influencers and Assisted by AI and Blockchain - Hus
 DAG Questionnaire with output leaves.  
 Response vector instead of weights?
 
+## Pickup Lines
+
+Present different lines from database to the user depending upon the time of the day.  
+Generate quirky lines?
+
 ### Question Node
 
 Most interactive nodes are question nodes. Question node contains a question and associated options for user to select from. Each option points to one or more other nodes which may also be an advice node.
