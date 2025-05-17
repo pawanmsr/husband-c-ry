@@ -2,12 +2,11 @@
 
 Husband(ry) for Men: Groom Yourself to be in your Gal's Good Books.  
 
-Fun Project (with Satire).  
-:construction: Work in Progress.
+Fun Project (with Satire) inspired by trends from early 2020s.
 
 ## Motivation
 
-Understanding and **learning** cross-platform programming, and multi-platform application development with focus on interface. Inspired by trends from early 2020s.
+Understanding and **learning** cross-platform programming, and multi-platform application development with focus on interface.
 
 ## Advertisement
 
@@ -52,9 +51,9 @@ These are leaf nodes of the DAG. They provide information to the user.
 - Flutter (Dart)
 - ~~Cordova, Ionic, React Native (JS)~~
 
-### Data
+### References
 
-:thinking:
+- 
 
 ## Acknowledgements
 
