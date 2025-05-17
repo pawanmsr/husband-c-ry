@@ -2,34 +2,27 @@
 
 Husband(ry) for Men: Groom Yourself to be in your Gal's Good Books.  
 
-Fun Pet Project (with Satire).  
+Fun Project (with Satire).  
 :construction: Work in Progress.
 
 ## Motivation
 
-Understanding and **learning** cross-platform programming, and multi-platform application development with focus on interface.
+Understanding and **learning** cross-platform programming, and multi-platform application development with focus on interface. Inspired by trends from early 2020s.
 
 ## Advertisement
 
-> *Are you a confused boyfriend/husband?*
-
-> *Are you afraid of silent **[lay off](https://en.wikipedia.org/wiki/Layoff)** by your lady?*  
-*Are you worried that your girlfriend/wife might ditch you?*  
-*Are you worried about the guy she told you not to worry about?*  
+> *Are you a confused boyfriend or husband?*
+> *Are you afraid of silent **treatment/lay off** by your lady?*  
+> *Are you worried that your girlfriend or wife might ditch you?*  
+> *Are you worried about the guy she told you not to worry about?*  
 
 Worry NO MORE. Influenced by Influencers and Assisted by AI and Blockchain - Husband(ry) helps you tune yourself to the Job Description **she** has in mind for you.
 
-> Avoid getting [AXE](https://youtu.be/ZC6faGD0Ow4?si=_EiA6jU98ZQHdAdr)D. Hire Husband(ry).
+> Avoid getting [AXE](https://youtu.be/ZC6faGD0Ow4)D. Try Husband(ry).
 
 ## Design
 
 DAG Questionnaire with output leaves.  
-Response vector instead of weights?
-
-## Pickup Lines
-
-Present different lines from database to the user depending upon the time of the day.  
-Generate quirky lines?
 
 ### Question Node
 
