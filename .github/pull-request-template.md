@@ -1,5 +1,3 @@
-Description.  
-
 # PR Title
 
-Links and other details.
+Description. Links and other details.
