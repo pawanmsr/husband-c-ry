@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'Husband-ry',
+        title: 'Husband(c)ry',
         theme: ThemeData(
           // This is the theme of your application.
           //
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const MyHomePage(title: 'Husbandry'),
+        home: const MyHomePage(title: 'Husband(c)ry'),
       ),
     );
   }
