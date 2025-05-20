@@ -1,23 +1,27 @@
-# Husband-ry
+# Husband(c)ry
 
-Husband(ry) for Men: Groom Yourself to be in your Gal's Good Books.  
+Husband(c)ry for Men: Groom Yourself to be in your Gal's Good Books.  
 
-Fun Project (with Satire) inspired by trends from early 2020s.
+## Overview
+
+Fun project (with satire) inspired by trends from early 2020s.
+
+Meant to educate myself on social movements - this project is not maintained and free to use - it will be deleted or archived once at least 20% of all dependencies become outdated or begin throwing depreciation warnings.
 
 ## Motivation
 
-Understanding and **learning** cross-platform programming, and multi-platform application development with focus on interface.
+Understanding, **learning** and experimenting with cross-platform programming, and multi-platform application development with focus on interface.
 
 ## Advertisement
 
-> *Are you a confused boyfriend or husband?*
-> *Are you afraid of silent **treatment/lay off** by your lady?*  
-> *Are you worried that your girlfriend or wife might ditch you?*  
+> *Are you a confused husband (or boyfriend)?*  
+> *Are you afraid of silent treatment (or silent lay off) by your lady?*  
+> *Are you worried that your wife (or girlfriend) might ditch you?*  
 > *Are you worried about the guy she told you not to worry about?*  
 
-Worry NO MORE. Influenced by Influencers and Assisted by AI and Blockchain - Husband(ry) helps you tune yourself to the Job Description **she** has in mind for you.
+Worry NO MORE. Influenced by Influencers and Assisted by AI and Blockchain - Husband(c)ry helps you tune yourself to the job description **SHE** has in mind for you.  
 
-> Avoid getting [AXE](https://youtu.be/ZC6faGD0Ow4)D. Try Husband(ry).
+> Avoid getting [AXE](https://youtu.be/ZC6faGD0Ow4)D. Hire Husband(c)ry.
 
 ## Design
 
@@ -53,7 +57,7 @@ These are leaf nodes of the DAG. They provide information to the user.
 
 ### References
 
-- 
+- Books (TODO).
 
 ## Acknowledgements
 
