@@ -4,7 +4,7 @@ import 'package:english_words/english_words.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'package:husbandry/config.dart';
-import 'package:husbandry/gty.dart';
+import 'package:husbandry/qs.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,7 +57,7 @@ class MyHomePage extends StatelessWidget {
               child: InkWell(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const GTY()));
+                      MaterialPageRoute(builder: (context) => const QS()));
                 },
                 child: ListTile(
                   leading: Icon(MdiIcons.fromString("account-question")),
@@ -69,7 +69,10 @@ class MyHomePage extends StatelessWidget {
             Card(
               elevation: 1,
               child: InkWell(
-                onTap: () => {},
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const QS()));
+                },
                 child: ListTile(
                   leading: Icon(MdiIcons.fromString("table-chair")),
                   title: Text('Getting Serious'),
