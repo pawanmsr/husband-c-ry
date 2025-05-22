@@ -4,7 +4,7 @@ import 'package:english_words/english_words.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'package:husbandry/config.dart';
-import 'package:husbandry/gty.dart';
+import 'package:husbandry/qs.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,31 +52,24 @@ class MyHomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           spacing: 1,
           children: <Widget>[
-            Card(
-              elevation: 1,
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const GTY()));
-                },
-                child: ListTile(
-                  leading: Icon(MdiIcons.fromString("account-question")),
-                  title: Text('Get To Know'),
-                  subtitle: Text('Establish likes, dislikes and type.'),
+            for (var i = 0; i < Config.titles.length; i++)
+              Card(
+                elevation: 1,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                QS(filename: Config.files[i])));
+                  },
+                  child: ListTile(
+                    leading: Icon(MdiIcons.fromString(Config.icon[i])),
+                    title: Text(Config.titles[i]),
+                    subtitle: Text(Config.subtitles[i]),
+                  ),
                 ),
               ),
-            ),
-            Card(
-              elevation: 1,
-              child: InkWell(
-                onTap: () => {},
-                child: ListTile(
-                  leading: Icon(MdiIcons.fromString("table-chair")),
-                  title: Text('Getting Serious'),
-                  subtitle: Text('Volatility or validation.'),
-                ),
-              ),
-            ),
           ],
         ),
       ),
