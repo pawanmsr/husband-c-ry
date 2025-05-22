@@ -52,34 +52,24 @@ class MyHomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           spacing: 1,
           children: <Widget>[
-            Card(
-              elevation: 1,
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const QS()));
-                },
-                child: ListTile(
-                  leading: Icon(MdiIcons.fromString("account-question")),
-                  title: Text('Get To Know'),
-                  subtitle: Text('Establish likes, dislikes and type.'),
+            for (var i = 0; i < Config.titles.length; i++)
+              Card(
+                elevation: 1,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                QS(filename: Config.files[i])));
+                  },
+                  child: ListTile(
+                    leading: Icon(MdiIcons.fromString(Config.icon[i])),
+                    title: Text(Config.titles[i]),
+                    subtitle: Text(Config.subtitles[i]),
+                  ),
                 ),
               ),
-            ),
-            Card(
-              elevation: 1,
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const QS()));
-                },
-                child: ListTile(
-                  leading: Icon(MdiIcons.fromString("table-chair")),
-                  title: Text('Getting Serious'),
-                  subtitle: Text('Volatility or validation.'),
-                ),
-              ),
-            ),
           ],
         ),
       ),
