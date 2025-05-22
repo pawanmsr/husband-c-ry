@@ -5,8 +5,8 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 import 'package:husbandry/config.dart';
 
-class GTY extends StatefulWidget {
-  const GTY({
+class QS extends StatefulWidget {
+  const QS({
     super.key,
     this.yeses = 0,
     this.nos = 0,
@@ -16,16 +16,15 @@ class GTY extends StatefulWidget {
   final int nos;
 
   @override
-  State<GTY> createState() => _GTY();
+  State<QS> createState() => _QS();
 }
 
-class _GTY extends State<GTY> {
+class _QS extends State<QS> {
   int _question = 1;
 
   void next() {
     setState(() {
       _question++;
-      _question = max(_question, Config.gtynq);
     });
   }
 
