@@ -3,8 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:english_words/english_words.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import 'package:husbandry/config.dart';
 import 'package:husbandry/qs.dart';
+import 'package:husbandry/dag.dart';
+import 'package:husbandry/config.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,7 +53,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           spacing: 1,
           children: <Widget>[
-            for (var i = 0; i < Config.titles.length; i++)
+            for (int i = 0; i < Config.dagTitles.length; i++)
               Card(
                 elevation: 1,
                 child: InkWell(
@@ -61,12 +62,30 @@ class MyHomePage extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                QS(filename: Config.files[i])));
+                                DAG(filename: Config.dagFiles[i])));
                   },
                   child: ListTile(
-                    leading: Icon(MdiIcons.fromString(Config.icon[i])),
-                    title: Text(Config.titles[i]),
-                    subtitle: Text(Config.subtitles[i]),
+                    leading: Icon(MdiIcons.fromString(Config.dagIcons[i])),
+                    title: Text(Config.dagTitles[i]),
+                    subtitle: Text(Config.dagSubtitles[i]),
+                  ),
+                ),
+              ),
+            for (int i = 0; i < Config.linearTitles.length; i++)
+              Card(
+                elevation: 1,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                QS(filename: Config.linearFiles[i])));
+                  },
+                  child: ListTile(
+                    leading: Icon(MdiIcons.fromString(Config.linearIcons[i])),
+                    title: Text(Config.linearTitles[i]),
+                    subtitle: Text(Config.linearSubtitles[i]),
                   ),
                 ),
               ),
