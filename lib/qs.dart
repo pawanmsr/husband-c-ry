@@ -18,12 +18,11 @@ class QS extends StatefulWidget {
 }
 
 class _QS extends State<QS> {
-  int _no = 0;
   int _yes = 0;
   int _question = 0;
   Map<String, dynamic> _data = {};
 
-  Future<void> readJson(filename) async {
+  Future<void> readJson(String filename) async {
     final String response = await rootBundle.loadString(filename);
     final Map<String, dynamic> data = await json.decode(response);
     setState(() {
@@ -39,7 +38,6 @@ class _QS extends State<QS> {
 
   void retry() {
     setState(() {
-      _no = 0;
       _yes = 0;
       _question = 0;
     });
@@ -54,13 +52,6 @@ class _QS extends State<QS> {
   void yes() {
     setState(() {
       _yes++;
-      next();
-    });
-  }
-
-  void no() {
-    setState(() {
-      _no++;
       next();
     });
   }
@@ -92,7 +83,7 @@ class _QS extends State<QS> {
                       child: Text('Yes'),
                     ),
                     ElevatedButton(
-                      onPressed: no,
+                      onPressed: next,
                       child: Text('No'),
                     ),
                   ],
