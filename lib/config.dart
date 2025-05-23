@@ -14,4 +14,7 @@ class Config {
   static List dagSubtitles = const [];
   static List dagIcons = const [];
   static List dagFiles = const [];
+
+  // UI //
+  static const double maxWidth = 400;
 }

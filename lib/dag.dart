@@ -19,7 +19,7 @@ class DAG extends StatefulWidget {
 
 class _DAG extends State<DAG> {
   int _value = 0;
-  String _node = "a";
+  String _node = "";
 
   Map<String, dynamic> _data = {};
 
@@ -35,6 +35,7 @@ class _DAG extends State<DAG> {
   void initState() {
     super.initState();
     readJson(widget.filename);
+    _node = "a";
   }
 
   void next(int action) {
@@ -64,24 +65,49 @@ class _DAG extends State<DAG> {
         title: Text(Config.title),
         centerTitle: true,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        spacing: 1,
-        children: <Widget>[
-          Text(_data[_node]["question"]),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            spacing: 4,
-            children: [
-              if (_data[_node]["options"].length > 0)
-                for (int i = 0; i < _data[_node]["options"].length; i++)
-                  ElevatedButton(
-                    onPressed: () => next(i),
-                    child: Text(_data[_node]["options"][i]),
-                  ),
-            ],
-          )
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          spacing: 1,
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
+              alignment: Alignment.center,
+              width: Config.maxWidth * 2,
+              decoration: BoxDecoration(
+                  border: BoxBorder.all(
+                      color: Theme.of(context).colorScheme.outline, width: 1),
+                  color: (_data[_node]["options"].length > 0)
+                      ? Theme.of(context).colorScheme.primaryContainer
+                      : Theme.of(context).colorScheme.secondaryContainer),
+              child: Text(
+                _data[_node]["question"],
+                softWrap: true,
+              ),
+            ),
+            SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                spacing: 4,
+                children: [
+                  if (_data[_node]["options"].length > 0)
+                    for (int i = 0; i < _data[_node]["options"].length; i++)
+                      SizedBox(
+                          width: Config.maxWidth * 3 / 5,
+                          child: ElevatedButton(
+                            onPressed: () => next(i),
+                            child: Text(
+                              _data[_node]["options"][i],
+                              softWrap: true,
+                            ),
+                          ))
+                ],
+              ),
+            )
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: retry,

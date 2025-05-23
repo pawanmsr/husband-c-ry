@@ -69,37 +69,75 @@ class _QS extends State<QS> {
         centerTitle: true,
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         spacing: 1,
         children: _question < _data["size"]
             ? <Widget>[
-                Text(_data["questions"][_question]),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  spacing: 4,
-                  children: [
-                    ElevatedButton(
-                      onPressed: yes,
-                      child: Text('Yes'),
-                    ),
-                    ElevatedButton(
-                      onPressed: next,
-                      child: Text('No'),
-                    ),
-                  ],
+                Container(
+                  margin: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
+                  alignment: Alignment.center,
+                  width: Config.maxWidth * 2,
+                  decoration: BoxDecoration(
+                      border: BoxBorder.all(
+                          color: Theme.of(context).colorScheme.outline,
+                          width: 1),
+                      color: Theme.of(context).colorScheme.primaryContainer),
+                  child: Text(
+                    _data["questions"][_question],
+                    softWrap: true,
+                  ),
+                ),
+                SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    spacing: 4,
+                    children: [
+                      SizedBox(
+                        width: Config.maxWidth * 3 / 5,
+                        child: ElevatedButton(
+                          onPressed: yes,
+                          child: Text('Yes'),
+                        ),
+                      ),
+                      SizedBox(
+                        width: Config.maxWidth * 3 / 5,
+                        child: ElevatedButton(
+                          onPressed: next,
+                          child: Text('No'),
+                        ),
+                      )
+                    ],
+                  ),
                 )
               ]
             : <Widget>[
-                _yes >= _data["threshold"]
-                    ? Text(_data["positive"])
-                    : Text(_data["negative"]),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 1,
-                    children: [
-                      ElevatedButton(onPressed: retry, child: Text("Retry")),
-                    ])
+                Container(
+                  margin: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
+                  alignment: Alignment.center,
+                  width: Config.maxWidth * 2,
+                  decoration: BoxDecoration(
+                      border: BoxBorder.all(
+                          color: Theme.of(context).colorScheme.outline,
+                          width: 1),
+                      color: Theme.of(context).colorScheme.secondaryContainer),
+                  child: _yes >= _data["threshold"]
+                      ? Text(
+                          _data["positive"],
+                          softWrap: true,
+                        )
+                      : Text(
+                          _data["negative"],
+                          softWrap: true,
+                        ),
+                )
               ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: retry,
+        tooltip: 'Retry',
+        child: Icon(MdiIcons.fromString("redo")),
       ),
     );
   }
