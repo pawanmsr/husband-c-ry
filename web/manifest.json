@@ -1,11 +1,11 @@
 {
-    "name": "Husband(c)ry",
+    "name": "husbandry",
     "short_name": "husbandry",
-    "start_url": "./",
+    "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Groom Yourself to be in your Gal's Good Books.",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
