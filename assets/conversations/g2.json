@@ -1,0 +1,52 @@
+{
+    "a": {
+        "question": "What is your favourite programming language?",
+        "options": ["C++", "Python", "Go", "Java", "C", "JavaScript", "Rust", "C#"],
+        "directions": ["b", "c"]
+    },
+    "b": {
+        "question": "What is your favourite text editor?",
+        "options": ["Visual Studio", "Intellij", "Notepad++", "Vim", "Emacs"],
+        "directions": ["d"]
+    },
+    "c": {
+        "question": "What do you prefer?",
+        "options": ["Tab", "Spaces"],
+        "directions": ["d"]
+    },
+    "d": {
+        "question": "What is your favourite keyboard switch?",
+        "options": ["Red", "Blue", "Brown", "Black"],
+        "directions": ["e", "f"]
+    },
+    "e": {
+        "question": "How many screens do you use?",
+        "options": ["1", "2", "3", "4", "More"],
+        "directions": ["g", "h"]
+    },
+    "f": {
+        "question": "Do you prefer a mouse or a touchpad?",
+        "options": ["Mouse", "Touchpad", "Something Else"],
+        "directions": ["g", "h"]
+    },
+    "g": {
+        "question": "What is your favourite topic?",
+        "options": ["Algebra", "Geometry", "Number Theory", "Calculus", "Topology"],
+        "directions": ["i", "j"]
+    },
+    "h": {
+        "question": "How much AI do you use everyday?",
+        "options": ["0", "10%", "20%", "30%", "40%", "More"],
+        "directions": ["i", "j"]
+    },
+    "i": {
+        "question": "Keep improving your programming skills.",
+        "options": [],
+        "directions": []
+    },
+    "j": {
+        "question": "There is always room for improvement.",
+        "options": [],
+        "directions": []
+    }
+}

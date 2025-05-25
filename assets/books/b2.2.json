@@ -1,0 +1,24 @@
+{
+    "questions": [
+        "The feeling of togetherness is very central to our marriage.",
+        "The most important aspect of marriage is companionship.",
+        "I think we should argue but only about important issues.",
+        "Our marriage is based on being one another's best friend.",
+        "The religious and other beliefs we share are basic to our marriage.",
+        "We often look back at our photo albums together.",
+        "We cultivate a sense of we-ness in our marriage.",
+        "We share all things personal and emotional in our marriage.",
+        "All the spaces in our home are shared spaces.",
+        "I would never take a separate vacation from my spouse.",
+        "There is nothing personal that I do not share with my spouse.",
+        "I am comfortable only with a moderate amount of emotional expression.",
+        "It is essential to have a strong sense of togetherness in marriage.",
+        "A strong sense of traditional values is good for a marriage.",
+        "There are few issues in a marriage worth arguing about."
+    ],
+    "threshold": 15,
+    "greater": "",
+    "lesser": "",
+    "neutral": "You are",
+    "percent": "Volatile."
+}

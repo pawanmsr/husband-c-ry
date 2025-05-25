@@ -1,0 +1,24 @@
+{
+    "questions": [
+        "I think it's a good idea for my partner and me to have a lot of separate friends.",
+        "I believe in honestly confronting disagreements, whatever the issue.",
+        "We often do things separately.",
+        "Marriage partners should be direct and honest no matter what the results.",
+        "I feel quite comfortable with a strong expression of lesser feelings.",
+        "Sometimes I enjoy a good argument with my spouse.",
+        "Jealousy is sometimes an issue in our marriage.",
+        "It is important to be a separate individual in a marriage.",
+        "We often will eat separately.",
+        "I enjoy trying to persuade my spouse when we have a disagreement.",
+        "I believe in keeping our marriage very romantic.",
+        "At times I enjoy expressing anger.",
+        "I believe it is important to fight even about small matters.",
+        "I enjoy working out our values through thorough arguments.",
+        "Keeping a certain amount of distance in a marriage helps the romance."
+    ],
+    "threshold": 15,
+    "greater": "",
+    "lesser": "",
+    "neutral": "You are",
+    "percent": "Validator."
+}
