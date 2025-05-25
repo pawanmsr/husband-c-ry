@@ -48,48 +48,61 @@ class MyHomePage extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          spacing: 1,
-          children: <Widget>[
-            for (int i = 0; i < Config.dagTitles.length; i++)
-              Card(
-                elevation: 1,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                DAG(filename: Config.dagFiles[i])));
-                  },
-                  child: ListTile(
-                    leading: Icon(MdiIcons.fromString(Config.dagIcons[i])),
-                    title: Text(Config.dagTitles[i]),
-                    subtitle: Text(Config.dagSubtitles[i]),
+        child: SizedBox(
+          width: Config.maxWidth,
+          child: SingleChildScrollView(
+            padding: EdgeInsets.all(Config.padding * 2),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              spacing: 1,
+              children: <Widget>[
+                for (int i = 0; i < Config.dagTitles.length; i++)
+                  Card(
+                    elevation: 1,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    DAG(filename: Config.dagFiles[i])));
+                      },
+                      child: ListTile(
+                        leading: Icon(MdiIcons.fromString(Config.dagIcons[i])),
+                        title: Text(Config.dagTitles[i]),
+                        subtitle: Text(
+                          Config.dagSubtitles[i],
+                          softWrap: true,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            for (int i = 0; i < Config.linearTitles.length; i++)
-              Card(
-                elevation: 1,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                QS(filename: Config.linearFiles[i])));
-                  },
-                  child: ListTile(
-                    leading: Icon(MdiIcons.fromString(Config.linearIcons[i])),
-                    title: Text(Config.linearTitles[i]),
-                    subtitle: Text(Config.linearSubtitles[i]),
+                for (int i = 0; i < Config.linearTitles.length; i++)
+                  Card(
+                    elevation: 1,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    QS(filename: Config.linearFiles[i])));
+                      },
+                      child: ListTile(
+                        leading:
+                            Icon(MdiIcons.fromString(Config.linearIcons[i])),
+                        title: Text(Config.linearTitles[i]),
+                        subtitle: Text(
+                          Config.linearSubtitles[i],
+                          softWrap: true,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-          ],
+              ],
+            ),
+          ),
         ),
       ),
     );

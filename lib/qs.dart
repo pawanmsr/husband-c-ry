@@ -19,6 +19,7 @@ class QS extends StatefulWidget {
 
 class _QS extends State<QS> {
   int _yes = 0;
+  int _size = 0;
   int _question = 0;
   Map<String, dynamic> _data = {};
 
@@ -27,6 +28,7 @@ class _QS extends State<QS> {
     final Map<String, dynamic> data = await json.decode(response);
     setState(() {
       _data = data;
+      _size = data["questions"].length;
     });
   }
 
@@ -68,38 +70,85 @@ class _QS extends State<QS> {
         title: Text(Config.title),
         centerTitle: true,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        spacing: 1,
-        children: _question < _data["size"]
-            ? <Widget>[
-                Text(_data["questions"][_question]),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  spacing: 4,
-                  children: [
-                    ElevatedButton(
-                      onPressed: yes,
-                      child: Text('Yes'),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          spacing: 1,
+          children: _question < _size
+              ? <Widget>[
+                  Container(
+                    margin: EdgeInsets.all(Config.margin),
+                    padding: EdgeInsets.all(Config.padding),
+                    alignment: Alignment.center,
+                    width: Config.maxWidth * 2,
+                    decoration: BoxDecoration(
+                        border: BoxBorder.all(
+                            color: Theme.of(context).colorScheme.outline,
+                            width: 1),
+                        color: Theme.of(context).colorScheme.primaryContainer),
+                    child: Text(
+                      _data["questions"][_question],
+                      softWrap: true,
                     ),
-                    ElevatedButton(
-                      onPressed: next,
-                      child: Text('No'),
+                  ),
+                  SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 4,
+                      children: [
+                        SizedBox(
+                          width: Config.maxWidth * Config.optionMul,
+                          child: ElevatedButton(
+                            onPressed: yes,
+                            child: Text('Yes'),
+                          ),
+                        ),
+                        SizedBox(
+                          width: Config.maxWidth * Config.optionMul,
+                          child: ElevatedButton(
+                            onPressed: next,
+                            child: Text('No'),
+                          ),
+                        )
+                      ],
                     ),
-                  ],
-                )
-              ]
-            : <Widget>[
-                _yes >= _data["threshold"]
-                    ? Text(_data["positive"])
-                    : Text(_data["negative"]),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 1,
-                    children: [
-                      ElevatedButton(onPressed: retry, child: Text("Retry")),
-                    ])
-              ],
+                  )
+                ]
+              : <Widget>[
+                  Container(
+                    margin: EdgeInsets.all(Config.margin),
+                    padding: EdgeInsets.all(Config.padding),
+                    alignment: Alignment.center,
+                    width: Config.maxWidth * 2,
+                    decoration: BoxDecoration(
+                        border: BoxBorder.all(
+                            color: Theme.of(context).colorScheme.outline,
+                            width: 1),
+                        color:
+                            Theme.of(context).colorScheme.secondaryContainer),
+                    child: _size == _data["threshold"]
+                        ? Text(
+                            "${_data["neutral"]} ${(_yes * 100.0 / _size).toStringAsFixed(1)}% ${_data["percent"]}",
+                            softWrap: true,
+                          )
+                        : _yes >= _data["threshold"]
+                            ? Text(
+                                _data["greater"],
+                                softWrap: true,
+                              )
+                            : Text(
+                                _data["lesser"],
+                                softWrap: true,
+                              ),
+                  )
+                ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: retry,
+        tooltip: 'Retry',
+        child: Icon(MdiIcons.fromString("redo")),
       ),
     );
   }
