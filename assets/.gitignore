@@ -1,0 +1,4 @@
+books/*
+!books/b.json
+!books/b1.json
+!books/b2*.json
