@@ -71,8 +71,8 @@ class _DAG extends State<DAG> {
           spacing: 1,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.all(8.0),
-              padding: EdgeInsets.all(8.0),
+              margin: EdgeInsets.all(Config.margin),
+              padding: EdgeInsets.all(Config.padding),
               alignment: Alignment.center,
               width: Config.maxWidth * 2,
               decoration: BoxDecoration(
@@ -95,7 +95,7 @@ class _DAG extends State<DAG> {
                   if (_data[_node]["options"].length > 0)
                     for (int i = 0; i < _data[_node]["options"].length; i++)
                       SizedBox(
-                          width: Config.maxWidth * 3 / 5,
+                          width: Config.maxWidth * Config.optionMul,
                           child: ElevatedButton(
                             onPressed: () => next(i),
                             child: Text(

@@ -19,6 +19,7 @@ class QS extends StatefulWidget {
 
 class _QS extends State<QS> {
   int _yes = 0;
+  int _size = 0;
   int _question = 0;
   Map<String, dynamic> _data = {};
 
@@ -27,6 +28,7 @@ class _QS extends State<QS> {
     final Map<String, dynamic> data = await json.decode(response);
     setState(() {
       _data = data;
+      _size = data["questions"].length;
     });
   }
 
@@ -71,11 +73,11 @@ class _QS extends State<QS> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         spacing: 1,
-        children: _question < _data["size"]
+        children: _question < _size
             ? <Widget>[
                 Container(
-                  margin: EdgeInsets.all(8.0),
-                  padding: EdgeInsets.all(8.0),
+                  margin: EdgeInsets.all(Config.margin),
+                  padding: EdgeInsets.all(Config.padding),
                   alignment: Alignment.center,
                   width: Config.maxWidth * 2,
                   decoration: BoxDecoration(
@@ -94,14 +96,14 @@ class _QS extends State<QS> {
                     spacing: 4,
                     children: [
                       SizedBox(
-                        width: Config.maxWidth * 3 / 5,
+                        width: Config.maxWidth * Config.optionMul,
                         child: ElevatedButton(
                           onPressed: yes,
                           child: Text('Yes'),
                         ),
                       ),
                       SizedBox(
-                        width: Config.maxWidth * 3 / 5,
+                        width: Config.maxWidth * Config.optionMul,
                         child: ElevatedButton(
                           onPressed: next,
                           child: Text('No'),
@@ -113,8 +115,8 @@ class _QS extends State<QS> {
               ]
             : <Widget>[
                 Container(
-                  margin: EdgeInsets.all(8.0),
-                  padding: EdgeInsets.all(8.0),
+                  margin: EdgeInsets.all(Config.margin),
+                  padding: EdgeInsets.all(Config.padding),
                   alignment: Alignment.center,
                   width: Config.maxWidth * 2,
                   decoration: BoxDecoration(
@@ -122,15 +124,20 @@ class _QS extends State<QS> {
                           color: Theme.of(context).colorScheme.outline,
                           width: 1),
                       color: Theme.of(context).colorScheme.secondaryContainer),
-                  child: _yes >= _data["threshold"]
+                  child: _size == _data["threshold"]
                       ? Text(
-                          _data["positive"],
+                          "${_data["neutral"]} ${(_yes * 100.0 / _size).toStringAsFixed(1)}% ${_data["percent"]}",
                           softWrap: true,
                         )
-                      : Text(
-                          _data["negative"],
-                          softWrap: true,
-                        ),
+                      : _yes >= _data["threshold"]
+                          ? Text(
+                              _data["greater"],
+                              softWrap: true,
+                            )
+                          : Text(
+                              _data["lesser"],
+                              softWrap: true,
+                            ),
                 )
               ],
       ),
