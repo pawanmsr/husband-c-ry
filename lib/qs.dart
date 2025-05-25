@@ -70,76 +70,80 @@ class _QS extends State<QS> {
         title: Text(Config.title),
         centerTitle: true,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        spacing: 1,
-        children: _question < _size
-            ? <Widget>[
-                Container(
-                  margin: EdgeInsets.all(Config.margin),
-                  padding: EdgeInsets.all(Config.padding),
-                  alignment: Alignment.center,
-                  width: Config.maxWidth * 2,
-                  decoration: BoxDecoration(
-                      border: BoxBorder.all(
-                          color: Theme.of(context).colorScheme.outline,
-                          width: 1),
-                      color: Theme.of(context).colorScheme.primaryContainer),
-                  child: Text(
-                    _data["questions"][_question],
-                    softWrap: true,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          spacing: 1,
+          children: _question < _size
+              ? <Widget>[
+                  Container(
+                    margin: EdgeInsets.all(Config.margin),
+                    padding: EdgeInsets.all(Config.padding),
+                    alignment: Alignment.center,
+                    width: Config.maxWidth * 2,
+                    decoration: BoxDecoration(
+                        border: BoxBorder.all(
+                            color: Theme.of(context).colorScheme.outline,
+                            width: 1),
+                        color: Theme.of(context).colorScheme.primaryContainer),
+                    child: Text(
+                      _data["questions"][_question],
+                      softWrap: true,
+                    ),
                   ),
-                ),
-                SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 4,
-                    children: [
-                      SizedBox(
-                        width: Config.maxWidth * Config.optionMul,
-                        child: ElevatedButton(
-                          onPressed: yes,
-                          child: Text('Yes'),
+                  SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 4,
+                      children: [
+                        SizedBox(
+                          width: Config.maxWidth * Config.optionMul,
+                          child: ElevatedButton(
+                            onPressed: yes,
+                            child: Text('Yes'),
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        width: Config.maxWidth * Config.optionMul,
-                        child: ElevatedButton(
-                          onPressed: next,
-                          child: Text('No'),
-                        ),
-                      )
-                    ],
-                  ),
-                )
-              ]
-            : <Widget>[
-                Container(
-                  margin: EdgeInsets.all(Config.margin),
-                  padding: EdgeInsets.all(Config.padding),
-                  alignment: Alignment.center,
-                  width: Config.maxWidth * 2,
-                  decoration: BoxDecoration(
-                      border: BoxBorder.all(
-                          color: Theme.of(context).colorScheme.outline,
-                          width: 1),
-                      color: Theme.of(context).colorScheme.secondaryContainer),
-                  child: _size == _data["threshold"]
-                      ? Text(
-                          "${_data["neutral"]} ${(_yes * 100.0 / _size).toStringAsFixed(1)}% ${_data["percent"]}",
-                          softWrap: true,
+                        SizedBox(
+                          width: Config.maxWidth * Config.optionMul,
+                          child: ElevatedButton(
+                            onPressed: next,
+                            child: Text('No'),
+                          ),
                         )
-                      : _yes >= _data["threshold"]
-                          ? Text(
-                              _data["greater"],
-                              softWrap: true,
-                            )
-                          : Text(
-                              _data["lesser"],
-                              softWrap: true,
-                            ),
-                )
-              ],
+                      ],
+                    ),
+                  )
+                ]
+              : <Widget>[
+                  Container(
+                    margin: EdgeInsets.all(Config.margin),
+                    padding: EdgeInsets.all(Config.padding),
+                    alignment: Alignment.center,
+                    width: Config.maxWidth * 2,
+                    decoration: BoxDecoration(
+                        border: BoxBorder.all(
+                            color: Theme.of(context).colorScheme.outline,
+                            width: 1),
+                        color:
+                            Theme.of(context).colorScheme.secondaryContainer),
+                    child: _size == _data["threshold"]
+                        ? Text(
+                            "${_data["neutral"]} ${(_yes * 100.0 / _size).toStringAsFixed(1)}% ${_data["percent"]}",
+                            softWrap: true,
+                          )
+                        : _yes >= _data["threshold"]
+                            ? Text(
+                                _data["greater"],
+                                softWrap: true,
+                              )
+                            : Text(
+                                _data["lesser"],
+                                softWrap: true,
+                              ),
+                  )
+                ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: retry,

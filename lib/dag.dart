@@ -65,9 +65,10 @@ class _DAG extends State<DAG> {
         title: Text(Config.title),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           spacing: 1,
           children: <Widget>[
             Container(
