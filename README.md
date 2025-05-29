@@ -22,8 +22,15 @@ Most interactive nodes are question nodes. Question node contains a question and
 
 Traversal to next node is decided based on the option that is selected and the current state.
 
-*S_{t + 1} = f(S_t, x)*  
-where S_t is state at time t and x represents the option that is selected.
+```tex
+$$$
+
+S_{t + 1} = function(S_t, x)
+
+$$$
+
+% where S_t is state at time t and x represents the option that is selected %
+```
 
 [![Screenshot](https://i.ibb.co/WvLfRDdz/Screenshot-2025-05-25-212559.png)](https://ibb.co/jkSDjVxw)
 
