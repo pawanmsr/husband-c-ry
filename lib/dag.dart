@@ -106,21 +106,21 @@ class _DAG extends State<DAG> {
                               softWrap: true,
                             ),
                           ))
-                  else {
-                    futureSuggestion = getSuggestion(_data[_node]["question"])
-                    FutureBuilder<Suggestion>(
-                      future: futureSuggestion,
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          return Text(snapshot.data!.title);
-                        } else if (snapshot.hasError) {
-                          return Text('${snapshot.error}');
-                        }
+                  // else {
+                  //   final futureSuggestion = getSuggestion(_data[_node]["question"])
+                  //   FutureBuilder<Suggestion>(
+                  //     future: futureSuggestion,
+                  //     builder: (context, snapshot) {
+                  //       if (snapshot.hasData) {
+                  //         return Text(snapshot.data!.title);
+                  //       } else if (snapshot.hasError) {
+                  //         return Text('${snapshot.error}');
+                  //       }
 
-                        return const CircularProgressIndicator();
-                      },
-                    )
-                  }
+                  //       return const CircularProgressIndicator();
+                  //     },
+                  //   )
+                  // }
                 ],
               ),
             )

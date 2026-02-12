@@ -8,7 +8,7 @@ class Suggestion {
   final String suggestion;
   final String message;
 
-  const Suggestion({this.suggestion = "", this.message = ""});
+  const Suggestion({required this.suggestion, this.message = ""});
 
   factory Suggestion.fromJson(Map<String, dynamic> json) {
     return switch (json) {
@@ -19,12 +19,14 @@ class Suggestion {
   }
 }
 
-Future<http.Response> getSuggestion(query) async {
+Future<Suggestion> getSuggestion(query) async {
   final response = await http.get(Uri.parse("${Config.api}/${query}"));
 
   if (response.statusCode == 200) {
     return Suggestion.fromJson(
       jsonDecode(response.body) as Map<String, dynamic>,
     );
+  } else {
+    throw Exception('Failed to load suggestions');
   }
 }
