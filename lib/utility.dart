@@ -19,8 +19,8 @@ class Suggestion {
   }
 }
 
-Future<http.Response> getSuggestion() async {
-  final response = await http.get(Uri.parse(Config.api));
+Future<http.Response> getSuggestion(query) async {
+  final response = await http.get(Uri.parse("${Config.api}/${query}"));
 
   if (response.statusCode == 200) {
     return Suggestion.fromJson(

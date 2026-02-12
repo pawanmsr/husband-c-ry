@@ -36,7 +36,7 @@ class Config {
     "list-status",
   ];
 
-  static const String api = ""
+  static const String api = "http://127.0.0.1:8000/agent/rekha/single"
 
   static const List linearFiles = [
     "assets/books/b1.json",

@@ -5,6 +5,8 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 import 'package:husbandry/config.dart';
 
+import 'utility.dart';
+
 class DAG extends StatefulWidget {
   const DAG({
     super.key,
@@ -104,6 +106,21 @@ class _DAG extends State<DAG> {
                               softWrap: true,
                             ),
                           ))
+                  else {
+                    futureSuggestion = getSuggestion(_data[_node]["question"])
+                    FutureBuilder<Suggestion>(
+                      future: futureSuggestion,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          return Text(snapshot.data!.title);
+                        } else if (snapshot.hasError) {
+                          return Text('${snapshot.error}');
+                        }
+
+                        return const CircularProgressIndicator();
+                      },
+                    )
+                  }
                 ],
               ),
             )
