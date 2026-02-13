@@ -84,6 +84,7 @@ def notes(keyword: str, limit=2) -> List[str]:
     return results[:limit]
 
 # TODO: write custom tool for weather
+# TODO: write custom tool for fast-food
 
 @tool("save", description="store results that were obtained during previous session")
 def save(result: str, suggestion: str) -> bool:
