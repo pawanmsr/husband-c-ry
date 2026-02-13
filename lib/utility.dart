@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 
 import 'package:husbandry/config.dart';
@@ -14,13 +13,16 @@ class Suggestion {
     return switch (json) {
       {'suggestion': String suggestion, 'message': String message} =>
         Suggestion(suggestion: suggestion, message: message),
+      {'suggestion': String suggestion} =>
+        Suggestion(suggestion: suggestion, message: ""),
       _ => throw const FormatException('Failed to load suggestion.'),
     };
   }
 }
 
-Future<Suggestion> getSuggestion(query) async {
-  final response = await http.get(Uri.parse("${Config.api}/${query}"));
+Future<Suggestion> getSuggestion(agent, result) async {
+  final Uri endpoint = Uri.parse("${Config.api}/${agent}/${result}");
+  final response = await http.get(endpoint);
 
   if (response.statusCode == 200) {
     return Suggestion.fromJson(

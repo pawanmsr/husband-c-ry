@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:husbandry/utility.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'package:husbandry/config.dart';
@@ -141,6 +142,71 @@ class _QS extends State<QS> {
                                 _data["lesser"],
                                 softWrap: true,
                               ),
+                  ),
+                  SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 4,
+                      children: [
+                        for (var agent in Config.agents)
+                          SizedBox(
+                            width: Config.maxWidth * Config.optionMul,
+                            child: ElevatedButton.icon(
+                              icon: Icon(
+                                  MdiIcons.fromString("account-tie-woman")),
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) =>
+                                      SimpleDialog(
+                                    title: Text("Consulting ${agent}",
+                                        softWrap: true),
+                                    children: [
+                                      Container(
+                                        margin: EdgeInsets.all(Config.margin),
+                                        padding: EdgeInsets.all(Config.padding),
+                                        alignment: Alignment.center,
+                                        width: Config.maxWidth * 3 / 2,
+                                        child: FutureBuilder<Suggestion>(
+                                          future: getSuggestion(
+                                              agent.toLowerCase(),
+                                              _size == _data["threshold"]
+                                                  ? "${_data["neutral"]} ${(_yes * 100.0 / _size).toStringAsFixed(1)}% ${_data["percent"]}"
+                                                  : (_yes >= _data["threshold"]
+                                                      ? _data["greater"]
+                                                      : _data["lesser"])),
+                                          builder: (context, snapshot) {
+                                            if (snapshot.hasData) {
+                                              return Text(
+                                                snapshot.data!.suggestion,
+                                                softWrap: true,
+                                              );
+                                            } else if (snapshot.hasError) {
+                                              return Text(
+                                                '${snapshot.error}',
+                                                softWrap: true,
+                                              );
+                                            }
+
+                                            return const SizedBox(
+                                                width: Config.maxWidth *
+                                                    Config.optionMul,
+                                                height: Config.maxWidth *
+                                                    Config.optionMul,
+                                                child:
+                                                    CircularProgressIndicator());
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                              label: Text("Consult ${agent}", softWrap: true),
+                            ),
+                          ),
+                      ],
+                    ),
                   )
                 ],
         ),
