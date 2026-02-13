@@ -22,7 +22,7 @@ from langchain_community.utilities import OpenWeatherMapAPIWrapper
 from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
 from langchain_google_genai import ChatGoogleGenerativeAI
-# from langchain_mistral import ChatMistralAI
+from langchain_mistralai import ChatMistralAI
 
 DIRECTORY = "data"
 
@@ -84,6 +84,7 @@ def notes(keyword: str, limit=2) -> List[str]:
     return results[:limit]
 
 # TODO: write custom tool for weather
+# TODO: write custom tool for fast-food
 
 @tool("save", description="store results that were obtained during previous session")
 def save(result: str, suggestion: str) -> bool:
@@ -107,10 +108,28 @@ class Agent:
         timeout=32,
         max_tokens=128
     )
+
+    gemini = ChatGoogleGenerativeAI(
+        model="gemini-2.5-flash-lite",
+        timeout=32,
+        max_tokens=128
+    )
+
+    gpt = ChatOpenAI(
+        model="gpt-5-nano-2025-08-07",
+        timeout=32,
+        max_tokens=128
+    )
+
+    mistral = ChatMistralAI(
+        model="mistral-small-2506",
+        timeout=32,
+        max_tokens=128,
+    )
     
     def __init__(self, model: str = ""):
         self.agent = create_agent(
-            model=self.claude,
+            model=self.mistral,
             system_prompt=SystemMessage(f"{BASIC} {ABILITY} {RESPONSE}"),
             middleware=[attitude],
             tools=[notes, save],
@@ -122,5 +141,9 @@ class Agent:
         response = self.agent.invoke({
             "messages": [HumanMessage(result)]
         }, context={"person": endpoint})
+
+
+        # ai_message = response.get("messages", [])[-1]
+        # return structure_response(ai_message)
 
         return response.get("structured_response", {})
