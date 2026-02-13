@@ -9,12 +9,12 @@ class Config {
   static const List dagTitles = ["General", "Programming"];
   static const List dagSubtitles = [
     "Everyday conversation.",
-    "Let's talk about programming."
+    "Let's talk about programming.",
   ];
   static const List dagIcons = ["chat", "file-code"];
   static const List dagFiles = [
     "assets/conversations/g1.json",
-    "assets/conversations/g2.json"
+    "assets/conversations/g2.json",
   ];
 
   // Linked List
@@ -35,6 +35,9 @@ class Config {
     "list-status",
     "list-status",
   ];
+
+  static const String api = "http://127.0.0.1:8000/agent";
+  static const List agents = ["Nirma", "Hema", "Rekha", "Jaya", "Sushma"];
 
   static const List linearFiles = [
     "assets/books/b1.json",

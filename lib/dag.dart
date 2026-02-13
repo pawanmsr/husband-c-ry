@@ -106,7 +106,7 @@ class _DAG extends State<DAG> {
                           ))
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
